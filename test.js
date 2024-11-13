@@ -1,7 +1,7 @@
 const { Kafka } = require('kafkajs')
 const ip = require('ip')
 
-const host = process.env.HOST_IP || ip.address()
+const host = '127.0.0.1'
 console.log(host)
 
 const kafka = new Kafka({
@@ -24,7 +24,7 @@ const run = async () => {
 
   // Consuming
   await consumer.connect()
-  await consumer.subscribe({ topic: 'test-topic', fromBeginning: true })
+  await consumer.subscribe({ topic: 'topic-test', fromBeginning: true })
 
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {

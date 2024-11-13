@@ -12,7 +12,7 @@ export class AppController {
   }
 
   @Post('')
-  createOrder(@Body() payload: CreateOrderDto){
+  createOrder(@Body() payload: CreateOrderDto) {
     return this.appService.createOrder(payload);
   }
 }
